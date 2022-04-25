@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/diary.css">
+</head>
+<body>
+    <div class="top">
+        <h1 class="title"><a href="./index.html">연습 Blog.</a></h1>
+        <span class="topMenu">MENU</span>
+    </div>
+    <div class="topNav hidden">
+        <div class="navMenu"><p class="menu"><a href="./index.html">Home.</a></p></div>
+        <div class="navMenu"><p class="menu"><a href="./diary.html">Diary.</a></p></div>
+        <div class="navMenu"><p class="menu">Photo.</p></div>
+    </div>
+    <div class="listOfArticle">
+        <div class="listBtn">
+            <p>글 목록 보기</p>
+        </div>
+        <div class="list hidden">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+        </div>
+        <div class="articleSection">
+            
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./assets/data/_contentData.js"></script>
+    <script>
+        console.log(contents.length)
+        // TopMenu 클릭시 메뉴 등장
+        $('.topMenu').on('click',()=>{
+            $('.topNav').toggleClass('hidden');
+        });
+
+        // 글 목록 보기 클릭시 목록 등장
+        $('.listBtn').on('click',()=>{
+            $('.list').toggleClass('hidden');
+        });
+
+        $('.slide-1').on('click', ()=>{
+            nowPic = 1;
+            $('.slideContainer').css("transform", 'translateX(0vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(0).addClass('adBtnClicked');
+        });
+        $('.slide-2').on('click', ()=>{
+            nowPic = 2;
+            $('.slideContainer').css("transform", 'translateX(-100vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(1).addClass('adBtnClicked');
+        });
+        $('.slide-3').on('click', ()=>{
+            nowPic = 3;
+            $('.slideContainer').css("transform", 'translateX(-200vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(2).addClass('adBtnClicked');
+        });
+
+        for (let i = 0; i< contents.length; i++) {
+            document.querySelectorAll('.list p')[i].innerHTML = contents[i].title;
+            $('.list p').eq(i).on('click',()=> {
+                window.location.href='./diary.html/'+contents[i].id;
+            })
+        }
+    </script>
+</body>
+</html>

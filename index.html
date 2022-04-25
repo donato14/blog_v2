@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습 블로그</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+</head>
+<body>
+    <div class="top">
+        <h1 class="title"><a href="./index.html">연습 Blog.</a></h1>
+        <span class="topMenu">MENU</span>
+    </div>
+    <div class="topNav hidden">
+        <div class="navMenu"><p class="menu"><a href="./index.html">Home.</a></p></div>
+        <div class="navMenu"><p class="menu"><a href="./diary.html">Diary.</a></p></div>
+        <div class="navMenu"><p class="menu">Photo.</p></div>
+    </div>
+    <div class="adBanner" style="overflow: hidden;">
+        <div class="slideContainer">
+            <dlv class="slide-box">
+                <img src="assets/images/car1.png">
+            </dlv>
+            <dlv class="slide-box">
+                <img src="assets/images/car2.png">
+            </dlv>
+            <dlv class="slide-box">
+                <img src="assets/images/car3.png">
+            </dlv>
+        </div>
+    </div>
+    <div class="bannerBtn">
+        <button class="slide-1 adBtn adBtnClicked">1</button>
+        <button class="slide-2 adBtn">2</button>
+        <button class="slide-3 adBtn">3</button>
+    </div>
+    <div class="contentsContainer">
+        <div class="contents">
+            <div></div>
+            <h2>제목</h2>
+            <p>내용</p>
+        </div>
+        <div class="contents">
+            <div></div>
+            <h2>제목</h2>
+            <p>내용</p>
+        </div>
+        <div class="contents">
+            <div></div>
+            <h2>제목</h2>
+            <p>내용</p>
+        </div>
+        <div class="contents">
+            <div></div>
+            <h2>제목</h2>
+            <p>내용</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>연습 블로그</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./assets/data/_contentData.js"></script>
+    <script>
+        console.log(contents[0].title);
+        let nowPic = 0;
+        //let topMenu = false;
+
+        // $('.topMenu').on('click', ()=> {
+        //     if (topMenu == false) {
+        //         $('.topNav').removeClass('hidden');
+        //         topMenu = true;
+        //     } else if (topMenu == true) {
+        //         $('.topNav').addClass('hidden');
+        //         topMenu = false;
+        //     };
+        // });
+
+        $('.topMenu').on('click',()=>{
+            $('.topNav').toggleClass('hidden');
+        });
+
+        $('.slide-1').on('click', ()=>{
+            nowPic = 1;
+            $('.slideContainer').css("transform", 'translateX(0vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(0).addClass('adBtnClicked');
+        });
+        $('.slide-2').on('click', ()=>{
+            nowPic = 2;
+            $('.slideContainer').css("transform", 'translateX(-100vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(1).addClass('adBtnClicked');
+        });
+        $('.slide-3').on('click', ()=>{
+            nowPic = 3;
+            $('.slideContainer').css("transform", 'translateX(-200vw)');
+            $('.adBtn').removeClass('adBtnClicked');
+            $('.adBtn').eq(2).addClass('adBtnClicked');
+        });
+        
+        // let oImg = document.createElement("img");
+        // oImg.src = "assets/contents/"+1+".png";
+        // oImg.width = 300;
+        // oImg.height = 200;
+        // document.querySelectorAll('.contents div')[0].appendChild(oImg);
+        for (let i = 0; i < $('.contents').length; i++) {
+            let oImg = document.createElement("img");
+            oImg.src = "assets/contents/"+(i+1)+".png";
+            if (i > 2) {
+                oImg.src = "assets/contents/"+(3)+".png";
+            }
+            oImg.width = 300;
+            oImg.height = 200;
+            document.querySelectorAll('.contents div')[i].appendChild(oImg);
+            document.querySelectorAll('.contents h2')[i].innerHTML = contents[i].title;
+            document.querySelectorAll('.contents p')[i].innerHTML = contents[i].desc;
+            $('.contents h2').eq(i).on('click',()=> {
+                window.location.href='./diary.html/'+contents[i].id;
+            })
+        }
+    </script>
+</body>
+</html>
