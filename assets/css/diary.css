@@ -47,3 +47,8 @@
 .list > p:not(:last-child) {
     border-bottom: none;
 }
+
+.list > p:hover {
+    color: #fff;
+    transition: all 500ms;
+}

@@ -24,15 +24,15 @@
             <p>글 목록 보기</p>
         </div>
         <div class="list hidden">
-            <p>1</p>
             <p>2</p>
             <p>3</p>
             <p>4</p>
             <p>5</p>
             <p>6</p>
+            <p>1</p>
         </div>
         <div class="articleSection">
-            
+
         </div>
     </div>
 
@@ -70,7 +70,7 @@
         });
 
         for (let i = 0; i< contents.length; i++) {
-            document.querySelectorAll('.list p')[i].innerHTML = contents[i].title;
+            document.querySelectorAll('.list p')[i].innerHTML = contents[i].title + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + contents[i].date;
             $('.list p').eq(i).on('click',()=> {
                 window.location.href='./diary.html/'+contents[i].id;
             })
