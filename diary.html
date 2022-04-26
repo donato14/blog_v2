@@ -23,7 +23,7 @@
         <div class="listBtn">
             <p>글 목록 보기</p>
         </div>
-        <div class="list hidden">
+        <div class="list none">
             <p>2</p>
             <p>3</p>
             <p>4</p>
@@ -32,7 +32,22 @@
             <p>1</p>
         </div>
         <div class="articleSection">
-
+            <div class="articleTitle">
+                <h1>제목란입니다</h1>
+                <span>날짜영역</span>
+            </div>
+            <div class="articleDesc">
+                <p>본문입니다.</p>
+            </div>
+        </div>
+        <div class="articleSection">
+            <div class="articleTitle">
+                <h1>제목란입니다</h1>
+                <span>날짜영역</span>
+            </div>
+            <div class="articleDesc">
+                <p>본문입니다.</p>
+            </div>
         </div>
     </div>
 
@@ -47,7 +62,7 @@
 
         // 글 목록 보기 클릭시 목록 등장
         $('.listBtn').on('click',()=>{
-            $('.list').toggleClass('hidden');
+            $('.list').toggleClass('none');
         });
 
         $('.slide-1').on('click', ()=>{
@@ -75,6 +90,24 @@
                 window.location.href='./diary.html/'+contents[i].id;
             })
         }
+        for (let i = 0; i<2; i++) {
+            document.querySelectorAll('.articleTitle h1')[i].innerHTML = contents[i].title;
+            document.querySelectorAll('.articleTitle span')[i].innerHTML = contents[i].date;
+            document.querySelectorAll('.articleDesc p')[i].innerHTML = contents[i].desc;
+
+        }
+        // console.log(location.pathname);
+        // let nowPage = location.pathname;
+        // if (nowPage == "/diary.html") {
+        //     document.querySelectorAll('.articleTitle h1')[0].innerHTML = contents[0].title;
+        //     document.querySelectorAll('.articleTitle span')[0].innerHTML = contents[0].date;
+        //     document.querySelectorAll('.articleDesc p')[0].innerHTML = contents[0].desc;
+        // } else if (nowPage == "/diary.html/0") {
+        //     window.location.href='./diary.html';
+        //     document.querySelectorAll('.articleTitle h1')[0].innerHTML = contents[0].title;
+        //     document.querySelectorAll('.articleTitle span')[0].innerHTML = contents[0].date;
+        //     document.querySelectorAll('.articleDesc p')[0].innerHTML = contents[0].desc;
+        // }
     </script>
 </body>
 </html>

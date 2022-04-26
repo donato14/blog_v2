@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+.none {
+    position: absolute;
+    top: -999px;
+    left: 0;
+    opacity: 0;
+}
+
 .listOfArticle {
     width: 960px;
     margin: 0 auto;
@@ -13,6 +20,7 @@
     width: inherit;
     height: 20px;
     text-align: right;
+    margin-bottom: 30px;
     /* border: 1px solid black; */
 }
 
@@ -35,6 +43,7 @@
 
 .list > p {
     border: 1px solid black;
+    border-radius: 3px;
     font-size: 20px;
     cursor: pointer;
     font-size: 16px;
@@ -51,4 +60,43 @@
 .list > p:hover {
     color: #fff;
     transition: all 500ms;
+}
+
+/* 게시글 영역 */
+.articleTitle {
+    border: 1px solid #000;
+    border-radius: 3px;
+    width: inherit;
+    height: 30px;
+    text-align: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 30px;
+}
+
+.articleTitle > h1 {
+    display: inline;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+}
+
+.articleTitle > span {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.articleDesc {
+    margin-top: 25px;
+    width: inherit;
+    height: 500px;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+.articleDesc > p {
+    padding: 30px 30px;
+    text-align: left;
 }
