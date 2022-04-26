@@ -21,13 +21,13 @@
     <div class="adBanner" style="overflow: hidden;">
         <div class="slideContainer">
             <dlv class="slide-box">
-                <img src="assets/images/car1.png">
+                <img src="./assets/images/car1.png">
             </dlv>
             <dlv class="slide-box">
-                <img src="assets/images/car2.png">
+                <img src="./assets/images/car2.png">
             </dlv>
             <dlv class="slide-box">
-                <img src="assets/images/car3.png">
+                <img src="./assets/images/car3.png">
             </dlv>
         </div>
     </div>
@@ -108,9 +108,9 @@
         // document.querySelectorAll('.contents div')[0].appendChild(oImg);
         for (let i = 0; i < $('.contents').length; i++) {
             let oImg = document.createElement("img");
-            oImg.src = "assets/contents/"+(i+1)+".png";
+            oImg.src = "./assets/contents/"+(i+1)+".png";
             if (i > 2) {
-                oImg.src = "assets/contents/"+(3)+".png";
+                oImg.src = "./assets/contents/"+(3)+".png";
             }
             oImg.width = 300;
             oImg.height = 200;
